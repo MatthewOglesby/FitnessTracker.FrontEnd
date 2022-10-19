@@ -52,8 +52,8 @@ const App = () => {
     }, [token])
 
     return (
-        <div className='navbarLinks'>
-            
+        <div>
+            <Navbar logout={logout} token={token} />
         </div>
     )
 }
