@@ -54,6 +54,28 @@ const App = () => {
     return (
         <div>
             <Navbar logout={logout} token={token} />
+            <Routes>
+                <Route
+                    path='/home'
+                    element={<Home navigate={navigate} token={token} logout={logout} />}
+                />
+                <Route
+                    path='/MyRoutines'
+                    element
+                />
+                <Route
+                    path='/routines'
+                    element
+                />
+                <Route
+                    path='/register'
+                    element={<Register setToken={setToken} token={token} navigate={navigate} />}
+                />
+                <Route
+                    path='/login'
+                    element={<Login setToken={setToken} navigate={navigate} />}
+                />
+            </Routes>
         </div>
     )
 }

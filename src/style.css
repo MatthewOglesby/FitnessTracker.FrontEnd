@@ -4,6 +4,7 @@ header {
     box-shadow: 5px 5px 5px black;
     background-color: aquamarine;
 }
+
 .navLinks {
     display: flex;
     flex-direction: row;
@@ -11,7 +12,8 @@ header {
     font-size: 30px;
 }
 
-.navLinks2, .navLinks2:visited {
+.navLinks2,
+.navLinks2:visited {
     color: black;
     text-decoration: none;
     margin-right: 4rem;
@@ -22,4 +24,96 @@ header {
     cursor: pointer;
     text-decoration: underline;
     color: blue;
+}
+
+.navLinks3 {
+    font-size: 45px;
+    color: black;
+    text-decoration: none;
+    margin-right: 40rem;
+    margin-top: .4rem;
+}
+
+/* LOGIN */
+.loginForm {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    box-shadow: 0px 0px 40px 16px rgba(0, 0, 0, 0.22);
+    border-radius: 5%;
+    color: #F1F1F2;
+    position: relative;
+    width: 400px;
+    height: 600px;
+    font-family: 'Charis SIL', serif;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Charis SIL', serif;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.inputDiv {
+    padding-bottom: 2rem;
+    text-align: center;
+    margin: auto;
+}
+
+.submit {
+    background: none;
+    color: white;
+    text-shadow: 3px 3px 10px white;
+    transition: color 300ms;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 50px;
+    border: 2px solid grey;
+}
+
+.submit:focus {
+    color: #f2f2f2;
+}
+
+.submit:active {
+    color: #d0d0d2;
+}
+
+.submit:hover {
+    cursor: pointer;
+}
+
+label {
+    color: #c2c2c5;
+    display: block;
+    font-size: 14px;
+    height: 16px;
+}
+
+.userorpass {
+    color: white;
+    font-size: 20px;
+    height: 2rem;
+    border: none;
+    background: none;
+    width: 200px;
+    border-bottom: 2px solid #707075;
+}
+
+.inputLabel {
+    color: white;
+    text-shadow: 3px 3px 10px white;
+    font-size: 20px;
+    padding-bottom: 1rem;
 }

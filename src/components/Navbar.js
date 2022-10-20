@@ -5,7 +5,8 @@ const Navbar = ({ logout, token, fetchPosts }) => {
     return (
         <header>
             <nav className='navLinks'>
-                <Link to='/' className='navLinks2'>Home</Link>
+                <h3 className='navLinks3'>FitnessTrackr</h3>
+                <Link to='/home' className='navLinks2'>Home</Link>
                 <Link to='/MyRoutines' className='navLinks2'>My Routines</Link>
                 <Link to='/routines' className='navLinks2'>Routines</Link>
                 <Link to='/' className='navLinks2'>Logout</Link>
