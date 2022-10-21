@@ -19,25 +19,6 @@ export const registerUser = async (username, password) => {
             })} catch (error) {
                 console.error(error)
             }
-    // try {
-    //     const response = await fetch(`${baseURL}users/register`, {
-    //         method: "POST",
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //             user: {
-    //                 username: username,
-    //                 password: password
-    //             }
-    //         })
-    //     })
-    //     const result = await response.json();
-    //     return result;
-
-    // } catch (ex) {
-    //     console.log('error registering user')
-    // }
 }
 
 export const loginUser = async (username, password) => {
@@ -75,5 +56,20 @@ export const getUserDetails = async(token) => {
 
     } catch(ex){
         console.log('error gettings user details')
+    }
+}
+
+export const getAllActivities = async() => {
+    try {
+        const response = await fetch(`${baseURL}activities`, {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }).then(response => response.json())
+            .then(result => {
+              console.log(result);
+            })
+    } catch (ex) {
+
     }
 }
