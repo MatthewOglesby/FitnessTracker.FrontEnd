@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter, Routes, useNavigate } from 'react-router-dom';
-import { getPosts, getUserDetails } from './api';
+import { getUserDetails } from './api';
 import './style.css'
 
 import {
@@ -13,17 +13,17 @@ import {
     Routines
 } from './components'
 
-
 const App = () => {
-    const [posts, setPosts] = useState([]);
     const [token, setToken] = useState('');
     const [user, setUser] = useState({});
 
     const navigate = useNavigate();
 
-    // console.log(user)
-    // can log the token of login or user if interested in seeing it
-
+    if (token) {
+        // can log the token of login or user if interested in seeing it
+        // console.log(token)
+    }
+    
     function logout() {
         window.localStorage.removeItem('token');
         setToken('')
@@ -40,10 +40,10 @@ const App = () => {
         }
 
         const results = await getUserDetails(token)
-        if (results.success) {
-            setUser(results.data);
+        if (results) {
+            setUser(results.token, results.message);
         } else {
-            console.log(results.error.message)
+            console.log(results.error)
         }
     }
 

@@ -6,23 +6,22 @@ const Login = ({ setToken, navigate }) => {
     const [password, setPassword] = useState('');
 
     let loginForm = document.getElementById('loginForm')
-    let errorMessage = document.getElementById('errorMessage')
 
     const handleSubmit = async () => {
         const results = await loginUser(username, password);
-        if (results.success) {
-            setToken(results.data.token)
-            console.log(results);
-            window.localStorage.setItem('token', results.data.token);
-            navigate('/');
-        } else {
-            console.log(results.error.message)
-            loginForm.style.animation = 'shake 0.5s'
-            errorMessage.innerText = results.error.message
-            document.getElementsByName('username')[0].value = ''
-            document.getElementsByName('password')[0].value = ''
-        }
-
+        console.log(results, 'hi matthew')
+        console.log(results.user)
+        if (results.user) {
+          setToken(results.token)
+          console.log(results.message);
+          window.localStorage.setItem('token', results.token);
+          navigate('/home');
+      } else {
+          console.log(results.error)
+          loginForm.style.animation = 'shake .5s'
+          document.getElementsByName('username')[0].value = ''
+          document.getElementsByName('password')[0].value = ''
+      }
     }
 
     return ( 

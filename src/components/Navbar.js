@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const Navbar = ({ logout, token, fetchPosts }) => {
+const Navbar = ({ logout, token }) => {
     return (
         <header>
             <nav className='navLinks'>

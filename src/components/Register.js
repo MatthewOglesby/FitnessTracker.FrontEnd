@@ -9,23 +9,21 @@ const [username, setUsername] = useState('');
 const [password, setPassword] = useState('');
 
 let loginForm = document.getElementById('loginForm')
-let errorMessage = document.getElementById('errorMessage')
 
 const handleSubmit = async() => {
-    const results = await registerUser(username, password);
-    if (results.success) {
-        setToken(results.data.token)
-        console.log(results);
-        window.localStorage.setItem('token', results.data.token);
+    const {user, token, message, error} = await registerUser(username, password);
+    console.log(user)
+    if (user) {
+        setToken(token)
+        console.log(message);
+        window.localStorage.setItem('token', token);
         navigate('/home');
     } else {
-        console.log(results.error.message)
+        console.log(error)
         loginForm.style.animation = 'shake .5s'
-        errorMessage.innerText = results.error.message
         document.getElementsByName('username')[0].value = ''
         document.getElementsByName('password')[0].value = ''
     }
-
 }
 
     return (
