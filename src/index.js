@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter, Routes, useNavigate } from 'react-router-dom';
-import { getAllActivities, getUserDetails } from './api';
+import { getAllActivities, getAllRoutines, getUserDetails } from './api';
 import './style.css'
 
 import {
@@ -15,6 +15,7 @@ import {
 
 const App = () => {
     const [activities, setActivities] = useState([]);
+    const [routines, setRoutines] = useState([]);
     const [token, setToken] = useState('');
     const [user, setUser] = useState({});
 
@@ -22,9 +23,9 @@ const App = () => {
 
     if (token) {
         // can log the token of login or user if interested in seeing it
-        console.log(token)
+        // console.log(token)
     } else {
-        console.log('No token here')
+        // console.log('No token here')
     }
 
     function logout() {
@@ -33,8 +34,13 @@ const App = () => {
         setUser({});
     }
 
+    async function fetchAllRoutines() {
+        const results = await getAllRoutines();
+        setRoutines(results)
+    }
+
     async function fetchAllActivities() {
-        const results = await getAllActivities(token)
+        const results = await getAllActivities()
         setActivities(results);
     }
 
@@ -60,6 +66,10 @@ const App = () => {
     }, [token])
 
     useEffect(() => {
+        fetchAllRoutines();
+    }, [token])
+
+    useEffect(() => {
         getMe();
     }, [token])
 
@@ -77,7 +87,7 @@ const App = () => {
                 />
                 <Route
                     path='/routines'
-                    element={<Routines activities={activities} token={token} navigate={navigate} />}
+                    element={<Routines routines={routines} activities={activities} token={token} navigate={navigate} />}
                 />
                 <Route
                     path='/register'

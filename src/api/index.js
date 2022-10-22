@@ -65,11 +65,28 @@ export const getAllActivities = async() => {
             headers: {
               'Content-Type': 'application/json',
             },
-          }).then(response => response.json())
-            .then(result => {
-              console.log(result);
-            })
+          });
+
+          const results = await response.json();
+          return results;
+
     } catch (ex) {
         console.error(error)
     }
+}
+
+export const getAllRoutines = async() => {
+  try {
+    const response = await fetch(`${baseURL}activities`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    const results = await response.json();
+    return results;
+
+  } catch(ex) {
+    console.error(error)
+  }
 }
