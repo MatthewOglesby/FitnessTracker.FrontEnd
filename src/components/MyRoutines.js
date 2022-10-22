@@ -1,5 +1,5 @@
 // import {React, useEffect, useState} from "react";
-// import { fetchAllRoutines, fetchDeleteRoutine, fetchUpdateRoutines } from "../api";
+// import { getAllRoutines, fetchDeleteRoutine, fetchUpdateRoutines } from "../api";
 
 
 // const MyRoutines = (props) => {
@@ -16,7 +16,7 @@
 //     }
 
 //     const myRoutinePost = async () => {
-//         setRoutines(await fetchAllRoutines())
+//         setRoutines(await getAllRoutines())
 //     }
 
 //     const handleDelete = async (id) => {
@@ -28,7 +28,7 @@
 
 //     const updateMyRoutine = async (id) => {
 //         const updateRoutine = await fetchUpdateRoutines(token, newName, newGoal, id)
-//         setRoutines(await fetchAllRoutines())
+//         setRoutines(await getAllRoutines())
 //      }
 
 //     useEffect(() => {
