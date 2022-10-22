@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter, Routes, useNavigate } from 'react-router-dom';
 import { getAllActivities, getAllRoutines, getUserDetails } from './api';
+import swal from 'sweetalert';
 import './style.css'
 
 import {
@@ -33,6 +34,7 @@ const App = () => {
         window.localStorage.removeItem('token');
         setToken('')
         setUser({});
+        swal('You have been logged out!', '', "info")
     }
 
     async function fetchAllRoutines() {

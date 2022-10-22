@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { loginUser } from '../api';
+import swal from 'sweetalert';
 
 const Login = ({ setToken, navigate }) => {
     const [username, setUsername] = useState('');
@@ -14,6 +15,7 @@ const Login = ({ setToken, navigate }) => {
         if (results.user) {
           setToken(results.token)
           console.log(results.message);
+          swal("Welcome, " + username + '!', '')
           window.localStorage.setItem('token', results.token);
           navigate('/home');
       } else {
