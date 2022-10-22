@@ -124,6 +124,10 @@ label {
     padding-bottom: 1rem;
 }
 
+.errorMessage {
+    color: white;
+}
+
 
 
 @keyframes shake {

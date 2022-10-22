@@ -6,10 +6,10 @@ const Login = ({ setToken, navigate }) => {
     const [password, setPassword] = useState('');
 
     let loginForm = document.getElementById('loginForm')
+    let errorMessage = document.getElementById('errorMessage')
 
     const handleSubmit = async () => {
         const results = await loginUser(username, password);
-        console.log(results, 'hi matthew')
         console.log(results.user)
         if (results.user) {
           setToken(results.token)
@@ -19,6 +19,7 @@ const Login = ({ setToken, navigate }) => {
       } else {
           console.log(results.error)
           loginForm.style.animation = 'shake .5s'
+          errorMessage.innerText = results.error
           document.getElementsByName('username')[0].value = ''
           document.getElementsByName('password')[0].value = ''
       }

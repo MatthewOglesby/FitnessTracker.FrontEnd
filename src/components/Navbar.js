@@ -8,6 +8,7 @@ const Navbar = ({ logout, token }) => {
                 <h3 className='navLinks3'>FitnessTrackr</h3>
                 <Link to='/home' className='navLinks2'>Home</Link>
                 <Link to='/routines' className='navLinks2'>Routines</Link>
+                <Link to='/activities' className='navLinks2'>Activities</Link>
 
                 {
                     token ? (

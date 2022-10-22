@@ -10,7 +10,8 @@ import {
     MyRoutines,
     Navbar,
     Register,
-    Routines
+    Routines,
+    Activities
 } from './components'
 
 const App = () => {
@@ -87,6 +88,18 @@ const App = () => {
                 />
                 <Route
                     path='/routines'
+                    element={<Routines routines={routines} activities={activities} token={token} navigate={navigate} />}
+                />
+                <Route
+                    path='/routines/:routineId'
+                    element={<Routines routines={routines} activities={activities} token={token} navigate={navigate} />}
+                />
+                <Route
+                    path='/activities'
+                    element={<Routines routines={routines} activities={activities} token={token} navigate={navigate} />}
+                />
+                <Route
+                    path='/activities/:activityId'
                     element={<Routines routines={routines} activities={activities} token={token} navigate={navigate} />}
                 />
                 <Route
