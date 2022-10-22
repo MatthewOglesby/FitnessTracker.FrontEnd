@@ -70,6 +70,6 @@ export const getAllActivities = async() => {
               console.log(result);
             })
     } catch (ex) {
-
+        console.error(error)
     }
 }
