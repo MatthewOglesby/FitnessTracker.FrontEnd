@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-// import { fetchAllActivites } from '../index';
 import { useParams, Link, Navigate } from 'react-router-dom';
 
 const Routines = ({ activities, token, routines }) => {
 
-  console.log(activities)
   console.log(routines)
 
   return (

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter, Routes, useNavigate } from 'react-router-dom';
 import { getAllActivities, getAllRoutines, getUserDetails } from './api';
+import swal from 'sweetalert';
 import './style.css'
 
 import {
@@ -10,7 +11,8 @@ import {
     MyRoutines,
     Navbar,
     Register,
-    Routines
+    Routines,
+    Activities
 } from './components'
 
 const App = () => {
@@ -32,6 +34,7 @@ const App = () => {
         window.localStorage.removeItem('token');
         setToken('')
         setUser({});
+        swal('You have been logged out!', '', "info")
     }
 
     async function fetchAllRoutines() {
@@ -87,6 +90,18 @@ const App = () => {
                 />
                 <Route
                     path='/routines'
+                    element={<Routines routines={routines} activities={activities} token={token} navigate={navigate} />}
+                />
+                <Route
+                    path='/routines/:routineId'
+                    element={<Routines routines={routines} activities={activities} token={token} navigate={navigate} />}
+                />
+                <Route
+                    path='/activities'
+                    element={<Routines routines={routines} activities={activities} token={token} navigate={navigate} />}
+                />
+                <Route
+                    path='/activities/:activityId'
                     element={<Routines routines={routines} activities={activities} token={token} navigate={navigate} />}
                 />
                 <Route

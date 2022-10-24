@@ -1,6 +1,6 @@
 import React from 'react';
 
-        
+
 
 const Home  = () =>  {
   return (
@@ -14,7 +14,7 @@ const Home  = () =>  {
          
        </h2>
        <ul>
-  <li>Stenght training including lifting weights</li>
+  <li>Stength training including lifting weights</li>
   <li>Cardiovascular endurance such as running</li>
   
 </ul>

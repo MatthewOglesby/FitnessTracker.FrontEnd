@@ -8,7 +8,9 @@ body {
 header {
     height: 4rem;
     box-shadow: 5px 5px 5px black;
-    background-color: aquamarine;
+    background-image: url(/images/meteorshower.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .navLinks {
@@ -20,7 +22,8 @@ header {
 }
 
 .navLinks2, .navLinks2:visited {
-    color: black;
+    color: whitesmoke;
+    text-shadow: 3px 3px 10px white;
     text-decoration: none;
     margin-right: 4rem;
     margin-top: .75rem;
@@ -34,7 +37,8 @@ header {
 
 .navLinks3 {
     font-size: 45px;
-    color: black;
+    color: whitesmoke;
+    text-shadow: 3px 3px 10px white;
     text-decoration: none;
     margin-right: 40rem;
     margin-top: .4rem;
@@ -123,6 +127,10 @@ label {
     text-shadow: 3px 3px 10px white;
     font-size: 20px;
     padding-bottom: 1rem;
+}
+
+.errorMessage {
+    color: white;
 }
 
 
