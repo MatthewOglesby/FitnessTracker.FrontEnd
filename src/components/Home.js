@@ -1,25 +1,12 @@
 import React from 'react';
 
-
-
-const Home  = () =>  {
+const Home = () => {
   return (
-  
-  <div id="title">
-       
-      <h1> 
-     The world's greatest fintess tracker.
-      </h1>
-      <h2> 
-         
-       </h2>
-       <ul>
-  <li>Stength training including lifting weights</li>
-  <li>Cardiovascular endurance such as running</li>
-  
-</ul>
-       
-      </div>
+
+    <div id="title">
+      <h1>The world's greatest fitness tracker!</h1>
+    </div>
   );
 };
+
 export default Home;
