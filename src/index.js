@@ -91,7 +91,7 @@ const App = () => {
                 />
                 <Route
                     path='/routines'
-                    element={<Routines routines={routines} activities={activities} token={token} navigate={navigate} />}
+                    element={<Routines fetchAllRoutines={fetchAllRoutines} routines={routines} activities={activities} token={token} navigate={navigate} />}
                 />
                 <Route
                     path='/routines/:routineId'

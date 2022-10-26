@@ -1,7 +1,11 @@
 import React from 'react';
+import { getAllActivities } from '../api';
 
-const Activities = ({ activities, token, navigate }) => {
-  console.log(activities)
+const Activities = ({ activities, token, navigate, fetchAllActivities }) => {
+
+  useEffect(() => {
+    fetchAllActivities();
+}, [token])
 
   return (
     <div className='activityBody'>

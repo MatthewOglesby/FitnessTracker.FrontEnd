@@ -1,6 +1,6 @@
 /* BODY */
 body {
-    background-color: darkgrey;
+    background-color: aliceblue;
     ;
 }
 
@@ -248,6 +248,55 @@ label {
     font-size: 20px;
     border-radius: 50px;
     border: 2px solid grey;
+}
+
+/* ROUTINES */
+
+.creatorName {
+    color: white;
+    text-decoration: none;
+}
+
+.creatorName:hover {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.routineContainer {
+    color: whitesmoke;
+    display: flex;
+    border: 3px solid grey;
+    border-radius: 5%;
+    box-shadow: 5px 5px 5px darkgrey;
+    flex-direction: column;
+    width: 12rem;
+    height: 20rem;
+    overflow-y: auto;
+    background-color: black;
+    margin: 1rem;
+}
+
+.routineContainer1 {
+    margin: 1rem;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    color: white;
+    background: white;
+    border: 1px 1px 1px white;
+}
+
+::-webkit-scrollbar-track {
+    color: black;
+    background: black;
+    border: 1px 1px 1px white;
+}
+                    
+::-webkit-scrollbar-thumb {
+    border: 1px 1px 1px white;
+    color: white;
+    background: white;
 }
 
 @keyframes shake {
