@@ -1,22 +1,32 @@
 import React from 'react';
 
-const Activities = ({ activities, token }) => {
+const Activities = ({ activities, token, navigate }) => {
   console.log(activities)
+
   return (
-    <div>
-      <h1 id="activity-header">Activities</h1>
+    <div className='activityBody'>
+      {
+        token ? (
+          <div className='addButtonContainer'>
+            <button className='addButton' onClick={() => navigate('/activity/create-activity')} />
+          </div>
+
+        ) : (
+          <p></p>
+        )
+      }
       {activities ?
         activities.filter(activity => {
           return `${activity.name} ${activity.description}`
             .toLowerCase()
         }).map((activity) => {
           return (
-            <>
-              <div id="activity-card">
+            <div className='activityContainer'>
+              <div className='activityContainer1'>
                 <h2>{activity.name}</h2>
                 <p>{activity.description}</p>
               </div>
-            </>
+            </div>
           )
         }) : null
       }

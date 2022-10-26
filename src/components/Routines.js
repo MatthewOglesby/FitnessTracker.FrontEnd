@@ -15,18 +15,3 @@ const Routines = ({ activities, token, routines }) => {
 }
 
 export default Routines;
-
-// const [searchTerm, setSearchTerm] = useState('');
-// const { routineID } = useParams();
-
-// const routineMatches = (routine, string) => {
-//   const { name, description } = routine;
-
-//   if ((name.includes(string)) || description.includes(string)) {
-//     return routine;
-//   }
-// }
-
-// const filteredRoutines = routines.filter(routine => routineMatches(routine, searchTerm));
-
-// const routinesToDisplay = searchTerm.length ? filteredRoutines: routines;

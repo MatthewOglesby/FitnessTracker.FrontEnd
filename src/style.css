@@ -1,7 +1,7 @@
 /* BODY */
 body {
     background-color: darkgrey;
-    
+    ;
 }
 
 /* NAVBAR */
@@ -11,6 +11,9 @@ header {
     background-image: url(/images/meteorshower.gif);
     background-size: cover;
     background-repeat: no-repeat;
+    width: fit-content;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 .navLinks {
@@ -18,10 +21,10 @@ header {
     flex-direction: row;
     justify-content: center;
     font-size: 30px;
-    position: fixed;
 }
 
-.navLinks2, .navLinks2:visited {
+.navLinks2,
+.navLinks2:visited {
     color: whitesmoke;
     text-shadow: 3px 3px 10px white;
     text-decoration: none;
@@ -133,18 +136,162 @@ label {
     color: white;
 }
 
+/* ACTIVITY */
+.activityBody {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
+.activityContainer {
+    display: flex;
+    border: 3px solid #CCBCA4;
+    border-radius: 5%;
+    box-shadow: 5px 5px 5px #CCBCA4;
+    flex-direction: column;
+    width: 12rem;
+    background-color: blanchedalmond;
+    margin: 1rem;
+}
+
+.activityContainer1 {
+    margin: 1rem;
+}
+
+.addButtonContainer {
+    display: flex;
+    border: 3px solid #CCBCA4;
+    border-radius: 5%;
+    box-shadow: 5px 5px 5px #CCBCA4;
+    flex-direction: column;
+    width: 12rem;
+    background-color: blanchedalmond;
+    margin: 1rem;
+    font-size: 30px;
+    text-align: center;
+}
+
+.addButton {
+    border-radius: 5%;
+    height: 12rem;
+    width: 12rem;
+    border: none;
+    background-image: url(/images/plus.png);
+    background-size: 5rem;
+    box-shadow: 5px 5px 5px #CCBCA4;
+    background-repeat: no-repeat;
+    background-color: blanchedalmond;
+    background-position: 3.25rem 3.25rem;
+}
+
+.addButtonContainer:hover {
+    background-color: #CCBCA4;
+    box-shadow: 5px 5px 5px #A39683;
+    border: 3px solid #A39683;
+    cursor: pointer;
+}
+
+.addButton:hover {
+    background-color: #CCBCA4;
+    cursor: pointer;
+}
+
+/* CREATE ACTIVITY */
+.createNewActivity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    box-shadow: 5px 5px 5px #d0d0d2;
+    flex-direction: column;
+    width: 30rem;
+    height: 30rem;
+    background-color: black;
+    margin: 0 auto;
+    margin-top: 10rem;
+    font-family: 'Charis SIL', serif;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.createActivityLabel1 {
+    color: white;
+    text-shadow: 3px 3px 8px white;
+    border-radius: 5px;
+    font-size: 20px;
+    padding-bottom: 1rem;
+    padding-top: .5rem;
+}
+
+.activities1 {
+    color: white;
+    font-size: 20px;
+    height: 2rem;
+    border: none;
+    background: none;
+    width: 200px;
+    border-bottom: 2px solid #707075;
+}
+
+.buttonContainer {
+    margin-top: 1rem;
+}
+
+.submitActivity {
+    background: none;
+    color: white;
+    text-shadow: 3px 3px 10px white;
+    transition: color 300ms;
+    height: 50px;
+    width: 10rem;
+    font-size: 20px;
+    border-radius: 50px;
+    border: 2px solid grey;
+}
 
 @keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-1deg); }
-  }
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}

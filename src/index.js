@@ -12,7 +12,8 @@ import {
     Navbar,
     Register,
     Routines,
-    Activities
+    Activities,
+    CreateNewActivity
 } from './components'
 
 const App = () => {
@@ -98,11 +99,15 @@ const App = () => {
                 />
                 <Route
                     path='/activities'
-                    element={<Routines routines={routines} activities={activities} token={token} navigate={navigate} />}
+                    element={<Activities activities={activities} fetchAllActivities={fetchAllActivities} token={token} navigate={navigate} />}
+                />
+                <Route
+                    path='/activity/create-activity'
+                    element={<CreateNewActivity activities={activities} fetchAllActivities={fetchAllActivities} token={token} navigate={navigate} />}
                 />
                 <Route
                     path='/activities/:activityId'
-                    element={<Routines routines={routines} activities={activities} token={token} navigate={navigate} />}
+                    element={<Activities fetchAllActivities={fetchAllActivities} token={token} navigate={navigate} />}
                 />
                 <Route
                     path='/register'
