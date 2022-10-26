@@ -7,8 +7,23 @@ const Routines = ({ activities, token, routines }) => {
 
   return (
     <div>
-      <div className='postBody'>
-        
+      <div className='activityBody'>
+      {routines ?
+        routines.filter(routine => {
+          return `${routine.name} ${routine.goal} ${routine.creatorName}`
+            .toLowerCase()
+        }).map((routine) => {
+          return (
+            <div className='activityContainer'>
+              <div className='activityContainer1'>
+                <h2>{routine.name}</h2>
+                <p>{routine.goal}</p>
+                <p>{routine.creatorName}</p>
+              </div>
+            </div>
+          )
+        }) : null
+      }
       </div>
     </div>
   )

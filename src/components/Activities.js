@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Activities = ({ activities, token, navigate }) => {
-  console.log(activities)
 
   return (
     <div className='activityBody'>
