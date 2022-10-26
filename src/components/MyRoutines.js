@@ -1,8 +1,8 @@
 import {React, useEffect, useState} from "react";
-import { getAllRoutines, fetchDeleteRoutine, fetchUpdateRoutines } from "../api";
+import { getAllRoutines, DeleteRoutine, getUpdateRoutines } from "../api";
 
 
-const MyRoutines = (props) => {
+const myRoutines = (props) => {
     const { routines, setRoutines, user, token } = props
     const [newName, setNewName] = useState('')
     const [newGoal, setNewGoal] = useState('')
@@ -55,6 +55,7 @@ const MyRoutines = (props) => {
         e.preventDefault()
         e.stopPropagation()
         updateMyRoutine(routine.id)  
+        //Stranger's Things create
          } }>
           <input type="text" name="name" placeholder="name" value={newName} onChange={handleChangeNewName}></input>
           <input type="text" name="goal" placeholder="goal" value={newGoal} onChange={handleChangeNewGoal} ></input>
