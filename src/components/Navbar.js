@@ -14,7 +14,7 @@ const Navbar = ({ logout, token }) => {
                             <Link to='/routines' className='navLinks2'>Routines</Link>
                             <Link to='/activities' className='navLinks2'>Activities</Link>
                             <Link to='/MyRoutines' className='navLinks2'>My Routines</Link>
-                            <Link to='/home' onClick={() => { logout(); }} className='navLinks2'>Logout</Link>
+                            <Link to='/routines' onClick={() => { logout(); }} className='navLinks2'>Logout</Link>
                         </>
                     ) : (
                         <>

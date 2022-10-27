@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { getAllRoutines } from '../api';
 
-const Routines = ({ activities, token, routines, fetchAllRoutines }) => {
+const Routines = ({ activities, token, routines, fetchAllRoutines, navigate }) => {
 
   useEffect(() => {
     fetchAllRoutines();
@@ -13,6 +13,16 @@ const Routines = ({ activities, token, routines, fetchAllRoutines }) => {
   return (
     <div>
       <div className='activityBody'>
+      {
+        token ? (
+          <div className='addButtonContainerRoutine'>
+            <button className='addButtonRoutine' onClick={() => navigate('/routines/create-routine')} />
+          </div>
+
+        ) : (
+          <p></p>
+        )
+      }
         {routines ?
           routines.filter(routine => {
             return `${routine.name} ${routine.goal} ${routine.creatorName} ${routine.id} ${routine.activities}`
