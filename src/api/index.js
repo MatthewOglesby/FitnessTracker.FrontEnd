@@ -70,7 +70,7 @@ export const getMyRoutines = async (token, username) => {
       }
     })
     const results = await response.json()
-    console.log('results in api: ', results)
+    // console.log('results in api: ', results)
     return results
   } catch (error) {
     console.log('error getting all routines')

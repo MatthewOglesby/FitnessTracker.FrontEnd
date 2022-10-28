@@ -57,26 +57,26 @@ const MyRoutines = ({ token, username }) => {
 
     if (myRoutines.length) {
         return (
-            <div className='activityBody'>
-                <button><Link to='/create-routine' >Create New Routine</Link></button>
-                <div>
-                    <h2>My Routines:</h2>
+            <div className='myRoutinesBody'>
+                <Link to='/routines/create-routine' className="createLinkBox"><button className="createLink">Create New Routine</button></Link>
+                <div className="myRoutinesBody1">
+                    <div className="line"></div>
                     {myRoutines.map((routine) => {
                         const { id, creatorName, name, goal, isPublic, activities } = routine;
 
                         return (
-                            <div key={id} className='activityContainer'>
+                            <div key={id} className='myRoutineContainer'>
                                 <h2>{name}</h2>
                                 <p>Goal: {goal}</p>
                                 <p>IsPublic: {isPublic.toString()}</p>
                                 <div>
-                                    <button onClick={() => setActivateEdit(!activateEdit)}>Edit Routine</button>
+                                    <button onClick={() => setActivateEdit(!activateEdit)} className='editRoutine'>Edit Routine</button>
                                     {
                                         activateEdit && <EditRoutine token={token} myRoutines={myRoutines} routineId={id} getMyRoutinesHelper={getMyRoutinesHelper} />
                                     }
+                                    <button onClick={() => handleDelete(id)} className='deleteRoutine'>Delete Routine</button>
                                 </div>
 
-                                <button onClick={() => handleDelete(id)}>Delete Routine</button>
                                 <div>
                                     {activities.map((activity) => {
                                         return (

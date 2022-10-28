@@ -250,6 +250,7 @@ label {
     border-radius: 50px;
     border: 2px solid grey;
 }
+
 .submitActivity:hover {
     cursor: pointer;
 }
@@ -345,6 +346,80 @@ label {
     box-shadow: 5px 5px 5px white;
     background-color: black;
     cursor: pointer;
+}
+
+.createLink {
+    width: 13rem;
+    height: 20rem;
+    border-radius: 5%;
+    box-shadow: 5px 5px 5px #CCBCA4;
+    background-color: blanchedalmond;
+    border: 3px solid #CCBCA4;
+    font-size: 20px;
+}
+
+.createLink:hover {
+    cursor: pointer;
+    background-color: #A39683;
+    border: none
+}
+
+.createLinkBox {
+    margin: 1rem;
+}
+
+.myRoutinesBody {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.myRoutinesBody1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.myRoutineContainer {
+    display: flex;
+    border: 3px solid #CCBCA4;
+    border-radius: 5%;
+    box-shadow: 5px 5px 5px #CCBCA4;
+    flex-direction: column;
+    width: 13rem;
+    height: 20rem;
+    background-color: blanchedalmond;
+    margin: 1rem;
+    text-align: center;
+}
+
+.editRoutine {
+    border-radius: 50px;
+    height: 2.5rem;
+    width: 7rem;
+    font-size: 16px;
+    margin: 1rem;
+}
+
+.editRoutine:hover {
+    cursor: pointer;
+    background-color: #707075;
+}
+
+.deleteRoutine {
+    border-radius: 50px;
+    height: 2.5rem;
+    width: 7rem;
+    font-size: 16px;
+}
+
+.deleteRoutine:hover {
+    cursor: pointer;
+    background-color: #707075;
+}
+.line {
+    border-left: 6px solid darkgray;
+    height: 20rem;
+    margin: 1rem;
 }
 
 @keyframes shake {
