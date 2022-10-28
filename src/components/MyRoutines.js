@@ -57,17 +57,16 @@ const MyRoutines = ({ token, username }) => {
 
     if (myRoutines.length) {
         return (
-            <div>
-                <Link to='/create-routine' >Create New Routine</Link>
-                <div className="container-allRoutines">
+            <div className='activityBody'>
+                <button><Link to='/create-routine' >Create New Routine</Link></button>
+                <div>
                     <h2>My Routines:</h2>
                     {myRoutines.map((routine) => {
                         const { id, creatorName, name, goal, isPublic, activities } = routine;
 
                         return (
-                            <div key={id}>
+                            <div key={id} className='activityContainer'>
                                 <h2>{name}</h2>
-                                <p>Creator: {creatorName}</p>
                                 <p>Goal: {goal}</p>
                                 <p>IsPublic: {isPublic.toString()}</p>
                                 <div>
