@@ -22,6 +22,8 @@ const App = () => {
     const [routines, setRoutines] = useState([]);
     const [token, setToken] = useState('');
     const [user, setUser] = useState({});
+    const [username, setUsername] = useState('');
+    const [userId, setUserId] = useState(0);
 
     const navigate = useNavigate();
 
@@ -60,7 +62,9 @@ const App = () => {
 
         const results = await getUserDetails(token)
         if (results) {
-            setUser(results.token, results.message);
+            setUser(results);
+            setUsername(results.username);
+            setUserId(results.id)
         } else {
             console.log(results.error)
         }
@@ -88,7 +92,7 @@ const App = () => {
                 />
                 <Route
                     path='/MyRoutines'
-                    element
+                    element={<MyRoutines token={token} navigate={navigate} username={username} />}
                 />
                 <Route
                     path='/routines'

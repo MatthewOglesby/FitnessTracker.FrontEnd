@@ -26,7 +26,7 @@ const CreateRoutine = ({token, navigate}) => {
             <p className='publicRoutine'>Check box if you want the routine to be public:</p>
             <input type='checkbox' className="checkbox" placeholder="true" onChange={(e) => setIsPublic(e.target.checked)}></input>
             <div className='buttonContainer'>
-                <button className='submitActivity' onClick={(event) => { addActivity(); event.preventDefault() }}>Create</button>
+                <button className='submitActivity'>Create</button>
             </div>
 
         </form>
