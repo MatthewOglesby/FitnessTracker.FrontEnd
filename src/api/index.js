@@ -203,10 +203,6 @@ export const deleteActivityFromRoutine = async (routineActivityId, token) => {
   }
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 32fd36491c2bc56e93f75cde47c0723ea149a644
 export const getAllRoutines = async () => {
   try {
     const response = await fetch(`${baseURL}routines`, {
