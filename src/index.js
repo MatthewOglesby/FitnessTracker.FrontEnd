@@ -13,7 +13,8 @@ import {
     Register,
     Routines,
     Activities,
-    CreateNewActivity
+    CreateNewActivity,
+    CreateRoutine
 } from './components'
 
 const App = () => {
@@ -94,8 +95,8 @@ const App = () => {
                     element={<Routines fetchAllRoutines={fetchAllRoutines} routines={routines} activities={activities} token={token} navigate={navigate} />}
                 />
                 <Route
-                    path='/routines/:routineId'
-                    element={<Routines routines={routines} activities={activities} token={token} navigate={navigate} />}
+                    path='/routines/create-routine'
+                    element={<CreateRoutine token={token} navigate={navigate} />}
                 />
                 <Route
                     path='/activities'

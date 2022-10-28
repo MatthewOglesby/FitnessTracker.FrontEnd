@@ -165,6 +165,7 @@ label {
     box-shadow: 5px 5px 5px #CCBCA4;
     flex-direction: column;
     width: 12rem;
+    height: 13rem;
     background-color: blanchedalmond;
     margin: 1rem;
     font-size: 30px;
@@ -173,7 +174,7 @@ label {
 
 .addButton {
     border-radius: 5%;
-    height: 12rem;
+    height: 13rem;
     width: 12rem;
     border: none;
     background-image: url(/images/plus.png);
@@ -249,6 +250,9 @@ label {
     border-radius: 50px;
     border: 2px solid grey;
 }
+.submitActivity:hover {
+    cursor: pointer;
+}
 
 /* ROUTINES */
 
@@ -261,6 +265,10 @@ label {
     color: blue;
     text-decoration: underline;
     cursor: pointer;
+}
+
+.publicRoutine {
+    color: white;
 }
 
 .routineContainer {
@@ -280,6 +288,7 @@ label {
 .routineContainer1 {
     margin: 1rem;
 }
+
 ::-webkit-scrollbar {
     width: 10px;
     color: white;
@@ -292,11 +301,50 @@ label {
     background: black;
     border: 1px 1px 1px white;
 }
-                    
+
 ::-webkit-scrollbar-thumb {
     border: 1px 1px 1px white;
     color: white;
     background: white;
+}
+
+.addButtonContainerRoutine {
+    display: flex;
+    border: 3px solid grey;
+    border-radius: 5%;
+    box-shadow: 5px 5px 5px darkgray;
+    flex-direction: column;
+    width: 12rem;
+    height: 20rem;
+    background-color: black;
+    margin: 1rem;
+    font-size: 30px;
+    text-align: center;
+}
+
+.addButtonRoutine {
+    border-radius: 5%;
+    height: 20rem;
+    width: 12rem;
+    border: none;
+    background-image: url(/images/addRoutine.png);
+    background-size: 10rem;
+    box-shadow: 5px 5px 5px darkgray;
+    background-repeat: no-repeat;
+    background-color: black;
+    background-position: 1rem 6rem;
+}
+
+.addButtonContainerRoutine:hover {
+    box-shadow: 5px 5px 5px white;
+    border: 3px solid white;
+    cursor: pointer;
+}
+
+.addButtonRoutine:hover {
+    box-shadow: 5px 5px 5px white;
+    background-color: black;
+    cursor: pointer;
 }
 
 @keyframes shake {
