@@ -105,4 +105,43 @@ const MyRoutines = ({ token, username }) => {
         )
     }
 }
+
+// const handleSubmit = async (ev) => {
+//     ev.preventDefault();
+//     const response = await fetch ('https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt/${postId}',
+//   { method:'PATCH',
+//   headers:{
+//       'Content-type': 'Application/json',
+//   },
+//   body: JSON.stringify({
+//       title,
+//       body,
+//     })
+//   });
+       
+//     const data = await response.json();
+//       if(data && data.title) {
+//         const newPosts = posts.map(post=> {
+//         if(post.id === postId) {
+//             return data;
+//         } else {
+//             return post;
+//         }
+//     });
+//     setPosts(newPosts);
+//     setTitle('');
+//     setBody('');
+//     setPostId(null);
+// }}
+
+// }
+export default Update;
+
+
+
+
+
+
+
+
 export default MyRoutines
