@@ -105,64 +105,64 @@ const MyRoutines = ({ token, username }) => {
     }
 }
 //below is the button for editing the duration. I will need to map over the previous duration
-
 <div>
-						  <button
-							onClick={() => {
-							  editActivity(activity.routineActivityId);
-							}}
-						  >
-							Edit Activity Duration
-						  </button>
-						  <button
-							onClick={async () => {
-							  await durationActivity(
-								activity.routineActivityId,
-                                duration={activity.duration},
-								token
-							  );
-							}}
-						  >
-							Edit Activity Duration
-						  </button>
-						</div>
+<h3>Edit Activity To Routine</h3>
 
-// const handleSubmit = async (ev) => {
-//     ev.preventDefault();
-//     const response = await fetch ('https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt/${postId}',
-//   { method:'PATCH',
-//   headers:{
-//       'Content-type': 'Application/json',
-//   },
-//   body: JSON.stringify({
-//       title,
-//       body,
-//     })
-//   });
-       
-//     const data = await response.json();
-//       if(data && data.title) {
-//         const newPosts = posts.map(post=> {
-//         if(post.id === postId) {
-//             return data;
-//         } else {
-//             return post;
-//         }
-//     });
-//     setPosts(newPosts);
-//     setTitle('');
-//     setBody('');
-//     setPostId(null);
-// }}
+<select onChange={(event) => setActivityId(event.target.value)}>
+  {defaultActivities.map((activity) => (
+    <option key={activity.id} value={activity.id}>
+      {activity.name}
+    </option>
+  ))}
+</select>
+<fieldset>
+  <label>Count: </label>
+  <input
+    type="number"
+    placeholder="number-of-repetitions"
+    onChange={(event) => setCount(event.target.value)}
+  ></input>
+</fieldset>
+<fieldset>
+  <label>Duration: </label>
+  <input
+    type="number"
+    placeholder="number-of-minutes"
+    onChange={(event) => setDuration(event.target.value)}
+  ></input>
+</fieldset>
+</div>
+// <div>
+// 						  <button
+// 							onClick={() => {
+// 							  editActivity(activity.routineActivityId);
+// 							}}
+// 						  >
+// 							Edit Activity Duration
+// 						  </button>
+// 						  <button
+// 							onClick={async () => {
+// 							  await durationActivity(
+// 								activity.routineActivityId,
+                            
+// 								token
+// 							  );
+// 							}}
+// 						  >
+// 							Edit Activity Duration
+// 						  </button>
+// 						</div>
 
-// // }
-// export default Update;
+//delete an activity from a routine
+async function deleteActiity(id) {
+    let response = await delete(BASE_URL + '/routines/' + id,
+    {
+        headers: {
+            Authorization: 'Bearer ' + token
+        }
+    });
 
-
-
-
-
-
+}
 
 
 export default MyRoutines
