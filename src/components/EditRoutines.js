@@ -40,4 +40,4 @@ const EditRoutine = ({ token, myRoutines, routineId, getMyRoutinesHelper, naviga
     )
 }
 
-export default EditRoutines
+export default EditRoutine

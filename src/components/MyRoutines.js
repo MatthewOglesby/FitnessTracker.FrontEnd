@@ -61,7 +61,7 @@ const MyRoutines = ({ token, username, navigate }) => {
                         );
                     })}
                 </div>
-                //below is the button for editing the duration. I will need to map over the previous duration
+                {/* //below is the button for editing the duration. I will need to map over the previous duration */}
 <div>
 <h3>Edit Activity To Routine</h3>
 
