@@ -2,7 +2,7 @@ import { react, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getMyRoutines, deleteRoutine, updateRoutine } from "../api";
 
-const EditRoutine = ({ token, myRoutines, routineId, getMyRoutinesHelper }) => {
+const EditRoutine = ({ token, myRoutines, routineId, getMyRoutinesHelper, navigate }) => {
 
     const [currentRoutine] = myRoutines.filter((routine) => routine.id === routineId)
 
@@ -28,17 +28,18 @@ const EditRoutine = ({ token, myRoutines, routineId, getMyRoutinesHelper }) => {
         <form className='editForm' onSubmit={(event) => {
             event.preventDefault();
             editRoutine();
+            console.log('I am submitted')
         }}>
             <input type='text' className="routineEditInput" placeholder="New Name" onChange={(event) => setNewName(event.target.value)}></input>
             <input type='text' className="routineEditInput" placeholder="New Goal" onChange={(event) => setNewGoal(event.target.value)}></input>
             <p>Public?</p>
-            <input type='checkbox' className="checkbox" placeholder="true" onChange={(event) => setNewIsPublic(event.target.checked)}></input>
-            <button type="submit">Submit Changes</button>
+            <input type='checkbox' placeholder="true" onChange={(event) => setNewIsPublic(event.target.checked)}></input>
+            <button type="submit" className="submitEditMyRoutines" onClick={() => navigate('/MyRoutines')}>Submit Changes</button>
         </form>
     )
 }
 
-const MyRoutines = ({ token, username }) => {
+const MyRoutines = ({ token, username, navigate }) => {
     const [myRoutines, setMyRoutines] = useState([]);
     const [activateEdit, setActivateEdit] = useState(false)
     const getMyRoutinesHelper = async () => {
@@ -67,11 +68,11 @@ const MyRoutines = ({ token, username }) => {
                             <div key={id} className='myRoutineContainer'>
                                 <h2>{name}</h2>
                                 <p>Goal: {goal}</p>
-                                <p>IsPublic: {isPublic.toString()}</p>
+                                <p>Public: {isPublic.toString()}</p>
                                 <div>
                                     <button onClick={() => setActivateEdit(!activateEdit)} className='editRoutine'>Edit Routine</button>
                                     {
-                                        activateEdit && <EditRoutine token={token} myRoutines={myRoutines} routineId={id} getMyRoutinesHelper={getMyRoutinesHelper} />
+                                        activateEdit && <EditRoutine token={token} myRoutines={myRoutines} routineId={id} getMyRoutinesHelper={getMyRoutinesHelper} navigate={navigate} />
                                     }
                                     <button onClick={() => handleDelete(id)} className='deleteRoutine'>Delete Routine</button>
                                 </div>

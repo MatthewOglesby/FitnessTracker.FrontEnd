@@ -63,7 +63,7 @@ export const getUserDetails = async (token) => {
 
 export const getMyRoutines = async (token, username) => {
   try {
-    const response = await fetch(`${baseURL}/users/${username}/routines`, {
+    const response = await fetch(`${baseURL}users/${username}/routines`, {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
@@ -246,7 +246,7 @@ export const createRoutine = async (token, { name, goal, isPublic }) => {
 
 export const updateRoutine = async (token, routineId, name, goal, isPublic) => {
   try {
-    const response = await fetch(`${baseURL}/routines/${routineId}`, {
+    const response = await fetch(`${baseURL}routines/${routineId}`, {
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json',
@@ -269,7 +269,7 @@ export const updateRoutine = async (token, routineId, name, goal, isPublic) => {
 
 export const deleteRoutine = async (routineId, token) => {
   try {
-    const response = await fetch(`${baseURL}/routines/${routineId}`, {
+    const response = await fetch(`${baseURL}routines/${routineId}`, {
       method: "DELETE",
       headers: {
         'Content-Type': 'application/json',
