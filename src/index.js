@@ -95,6 +95,10 @@ const App = () => {
                     element={<MyRoutines token={token} navigate={navigate} username={username} />}
                 />
                 <Route
+                    path='/routines/:routineId'
+                    element={<Routines token={token} navigate={navigate} username={username} />}
+                />
+                <Route
                     path='/routines'
                     element={<Routines fetchAllRoutines={fetchAllRoutines} routines={routines} activities={activities} token={token} navigate={navigate} />}
                 />
