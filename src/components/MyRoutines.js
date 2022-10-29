@@ -115,14 +115,7 @@ const MyRoutines = ({ token, username }) => {
     </option>
   ))}
 </select>
-<fieldset>
-  <label>Count: </label>
-  <input
-    type="number"
-    placeholder="number-of-repetitions"
-    onChange={(event) => setCount(event.target.value)}
-  ></input>
-</fieldset>
+
 <fieldset>
   <label>Duration: </label>
   <input
