@@ -25,16 +25,15 @@ const EditRoutine = ({ token, myRoutines, routineId, getMyRoutinesHelper }) => {
 
     }
     return (
-        <form onSubmit={(e) => {
-            e.preventDefault();
+        <form className='editForm' onSubmit={(event) => {
+            event.preventDefault();
             editRoutine();
         }}>
-            <input type='text' className="inputs" placeholder="Enter New Name" onChange={(e) => setNewName(e.target.value)}></input>
-            <input type='text' className="inputs" placeholder="Enter New Goal" onChange={(e) => setNewGoal(e.target.value)}></input>
-            <p>Check box if you want the routine to be public:</p>
-            <input type='checkbox' className="checkbox" placeholder="true" onChange={(e) => setNewIsPublic(e.target.checked)}></input>
-            <hr></hr>
-            <button type="submit" name="create-routine">Submit Changes</button>
+            <input type='text' className="routineEditInput" placeholder="New Name" onChange={(event) => setNewName(event.target.value)}></input>
+            <input type='text' className="routineEditInput" placeholder="New Goal" onChange={(event) => setNewGoal(event.target.value)}></input>
+            <p>Public?</p>
+            <input type='checkbox' className="checkbox" placeholder="true" onChange={(event) => setNewIsPublic(event.target.checked)}></input>
+            <button type="submit">Submit Changes</button>
         </form>
     )
 }
