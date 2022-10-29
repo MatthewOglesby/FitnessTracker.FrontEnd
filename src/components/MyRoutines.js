@@ -105,6 +105,28 @@ const MyRoutines = ({ token, username }) => {
         )
     }
 }
+//below is the button for editing the duration. I will need to map over the previous duration
+
+<div>
+						  <button
+							onClick={() => {
+							  editActivity(activity.routineActivityId);
+							}}
+						  >
+							Edit Activity Duration
+						  </button>
+						  <button
+							onClick={async () => {
+							  await durationActivity(
+								activity.routineActivityId,
+                                duration={activity.duration},
+								token
+							  );
+							}}
+						  >
+							Edit Activity Duration
+						  </button>
+						</div>
 
 // const handleSubmit = async (ev) => {
 //     ev.preventDefault();
@@ -134,8 +156,8 @@ const MyRoutines = ({ token, username }) => {
 //     setPostId(null);
 // }}
 
-// }
-export default Update;
+// // }
+// export default Update;
 
 
 
