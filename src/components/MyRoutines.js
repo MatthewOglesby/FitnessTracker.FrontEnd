@@ -105,4 +105,65 @@ const MyRoutines = ({ token, username, navigate }) => {
         )
     }
 }
+//below is the button for editing the duration. I will need to map over the previous duration
+<div>
+<h3>Edit Activity To Routine</h3>
+
+<select onChange={(event) => setActivityId(event.target.value)}>
+  {defaultActivities.map((activity) => (
+    <option key={activity.id} value={activity.id}>
+      {activity.name}
+    </option>
+  ))}
+</select>
+<fieldset>
+  <label>Count: </label>
+  <input
+    type="number"
+    placeholder="number-of-repetitions"
+    onChange={(event) => setCount(event.target.value)}
+  ></input>
+</fieldset>
+<fieldset>
+  <label>Duration: </label>
+  <input
+    type="number"
+    placeholder="number-of-minutes"
+    onChange={(event) => setDuration(event.target.value)}
+  ></input>
+</fieldset>
+</div>
+// <div>
+// 						  <button
+// 							onClick={() => {
+// 							  editActivity(activity.routineActivityId);
+// 							}}
+// 						  >
+// 							Edit Activity Duration
+// 						  </button>
+// 						  <button
+// 							onClick={async () => {
+// 							  await durationActivity(
+// 								activity.routineActivityId,
+                            
+// 								token
+// 							  );
+// 							}}
+// 						  >
+// 							Edit Activity Duration
+// 						  </button>
+// 						</div>
+
+//delete an activity from a routine
+async function deleteActiity(id) {
+    let response = await delete(BASE_URL + '/routines/' + id,
+    {
+        headers: {
+            Authorization: 'Bearer ' + token
+        }
+    });
+
+}
+
+
 export default MyRoutines
