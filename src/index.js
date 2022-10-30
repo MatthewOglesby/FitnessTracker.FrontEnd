@@ -92,7 +92,7 @@ const App = () => {
                 />
                 <Route
                     path='/MyRoutines'
-                    element={<MyRoutines token={token} navigate={navigate} username={username} />}
+                    element={<MyRoutines myRoutines={myRoutines} token={token} activities={activities} getUsersRoutines={getUsersRoutines}/>}
                 />
                 <Route
                     path='/routines/:routineId'

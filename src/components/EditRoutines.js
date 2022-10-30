@@ -1,6 +1,7 @@
 import { react, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getMyRoutines, deleteRoutine, updateRoutine } from "../api";
+import { useParams } from 'react-router-dom';
 
 
 const EditRoutine = ({ token, myRoutines, routineId, getMyRoutinesHelper, navigate }) => {
@@ -8,7 +9,6 @@ const EditRoutine = ({ token, myRoutines, routineId, getMyRoutinesHelper, naviga
     const [currentRoutine] = myRoutines.filter((routine) => routine.id === routineId)
 
     const { name, goal, isPublic } = currentRoutine;
-
     const [newName, setNewName] = useState(name);
     const [newGoal, setNewGoal] = useState(goal);
     const [newIsPublic, setNewIsPublic] = useState(isPublic);
