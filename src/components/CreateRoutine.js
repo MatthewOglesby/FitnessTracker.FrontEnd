@@ -18,7 +18,7 @@ const CreateRoutine = ({token, navigate}) => {
     }
     return (
         <form className='createNewActivity' onSubmit={(e) => {
-            e.preventDefault();
+            preventDefault();
             addRoutine();
         }}>
             <input type='text' className='activities1' placeholder="Enter Name" onChange={(e) => setName(e.target.value)}></input>

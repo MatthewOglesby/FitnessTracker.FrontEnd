@@ -92,7 +92,7 @@ const App = () => {
                 />
                 <Route
                     path='/MyRoutines'
-                    element={<MyRoutines token={token} navigate={navigate} username={username} />}
+                    element={<MyRoutines myRoutines={myRoutines} token={token} activities={activities} getUsersRoutines={getUsersRoutines}/>}
                 />
                 <Route
                     path='/routines/:routineId'
@@ -103,7 +103,7 @@ const App = () => {
                     element={<Routines fetchAllRoutines={fetchAllRoutines} routines={routines} activities={activities} token={token} navigate={navigate} />}
                 />
                 <Route
-                    path='/routines/create-routine'
+                    path='/createroutine'
                     element={<CreateRoutine token={token} navigate={navigate} />}
                 />
                 <Route
@@ -111,7 +111,7 @@ const App = () => {
                     element={<Activities activities={activities} fetchAllActivities={fetchAllActivities} token={token} navigate={navigate} />}
                 />
                 <Route
-                    path='/activity/create-activity'
+                    path='/activity/createactivity'
                     element={<CreateNewActivity activities={activities} fetchAllActivities={fetchAllActivities} token={token} navigate={navigate} />}
                 />
                 <Route
