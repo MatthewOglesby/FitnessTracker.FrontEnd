@@ -26,9 +26,18 @@ const EditRoutine = ({ token, myRoutines, routineId, getMyRoutinesHelper, naviga
         <form className='editForm' onSubmit={(event) => {
             event.preventDefault();
             editRoutine();
+            navigate('/MyRoutines')
         }}>
-            <input type='text' className="routineEditInput" placeholder="New Name" onChange={(event) => setNewName(event.target.value)}></input>
-            <input type='text' className="routineEditInput" placeholder="New Goal" onChange={(event) => setNewGoal(event.target.value)}></input>
+            <input 
+                type='text' 
+                className="routineEditInput" 
+                placeholder="New Name" 
+                onChange={(event) => setNewName(event.target.value)}></input>
+            <input 
+                type='text' 
+                className="routineEditInput" 
+                placeholder="New Goal" 
+                onChange={(event) => setNewGoal(event.target.value)}></input>
             <p>Public?</p>
             <input type='checkbox' placeholder="true" onChange={(event) => setNewIsPublic(event.target.checked)}></input>
             <button type="submit" className="submitEditMyRoutines" onClick={() => { navigate('/MyRoutines') }}>Submit Changes</button>
