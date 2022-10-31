@@ -14,7 +14,9 @@ import {
     Routines,
     Activities,
     CreateNewActivity,
-    CreateRoutine
+    CreateRoutine,
+    EditActivity,
+    AddActivityToRoutine
 } from './components'
 
 const App = () => {
@@ -106,13 +108,13 @@ const App = () => {
                     path='/activities'
                     element={<Activities activities={activities} fetchAllActivities={fetchAllActivities} token={token} navigate={navigate} />}
                 />
+                <Route 
+                    path='edit-activities/activities/:activityId' 
+                    element={<EditActivity token={token} activities={activities} navigate={navigate} fetchAllActivities={fetchAllActivities} />}
+                />
                 <Route
                     path='/activity/create-activity'
                     element={<CreateNewActivity activities={activities} fetchAllActivities={fetchAllActivities} token={token} navigate={navigate} />}
-                />
-                <Route
-                    path='/activities/:activityId'
-                    element={<Activities fetchAllActivities={fetchAllActivities} token={token} navigate={navigate} />}
                 />
                 <Route
                     path='/register'

@@ -1,11 +1,11 @@
-import React, {useEffect} from 'react';
-
+import React, { useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 const Activities = ({ activities, token, navigate, fetchAllActivities }) => {
 
   useEffect(() => {
     fetchAllActivities();
-}, [token])
+  }, [token])
 
   return (
     <div className='activityBody'>
@@ -29,6 +29,13 @@ const Activities = ({ activities, token, navigate, fetchAllActivities }) => {
               <div className='activityContainer1'>
                 <h2>{activity.name}</h2>
                 <p>{activity.description}</p>
+                <p>
+                  {
+                    token ?
+                      <Link to={`/edit-activities/activities/${activity.id}`}>Edit Activity</Link>
+                      : null
+                  }
+                </p>
               </div>
             </div>
           )

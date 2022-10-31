@@ -1,8 +1,9 @@
 import { react, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getMyRoutines, deleteRoutine, updateRoutine } from "../api";
+import {AddActivityToRoutine} from './index'
 
-const EditRoutine = ({ token, myRoutines, routineId, getMyRoutinesHelper }) => {
+const EditRoutine = ({ token, myRoutines, routineId, getMyRoutinesHelper, navigate }) => {
 
     const [currentRoutine] = myRoutines.filter((routine) => routine.id === routineId)
 
@@ -25,23 +26,25 @@ const EditRoutine = ({ token, myRoutines, routineId, getMyRoutinesHelper }) => {
 
     }
     return (
-        <form onSubmit={(e) => {
-            e.preventDefault();
+        <form className='editForm' onSubmit={(event) => {
+            event.preventDefault();
             editRoutine();
+            console.log('I am submitted')
         }}>
-            <input type='text' className="inputs" placeholder="Enter New Name" onChange={(e) => setNewName(e.target.value)}></input>
-            <input type='text' className="inputs" placeholder="Enter New Goal" onChange={(e) => setNewGoal(e.target.value)}></input>
-            <p>Check box if you want the routine to be public:</p>
-            <input type='checkbox' className="checkbox" placeholder="true" onChange={(e) => setNewIsPublic(e.target.checked)}></input>
-            <hr></hr>
-            <button type="submit" name="create-routine">Submit Changes</button>
+            <input type='text' className="routineEditInput" placeholder="New Name" onChange={(event) => setNewName(event.target.value)}></input>
+            <input type='text' className="routineEditInput" placeholder="New Goal" onChange={(event) => setNewGoal(event.target.value)}></input>
+            <p>Public?</p>
+            <input type='checkbox' placeholder="true" onChange={(event) => setNewIsPublic(event.target.checked)}></input>
+            <button type="submit" className="submitEditMyRoutines" onClick={() => navigate('/MyRoutines')}>Submit Changes</button>
         </form>
     )
 }
 
-const MyRoutines = ({ token, username }) => {
+const MyRoutines = ({ token, username, navigate }) => {
     const [myRoutines, setMyRoutines] = useState([]);
     const [activateEdit, setActivateEdit] = useState(false)
+    const [activateAddActivity, setActivateAddActivity] = useState(0);
+
     const getMyRoutinesHelper = async () => {
         const results = await getMyRoutines(token, username);
         setMyRoutines(results)
@@ -49,7 +52,7 @@ const MyRoutines = ({ token, username }) => {
 
     useEffect(() => {
         getMyRoutinesHelper()
-    }, [myRoutines]);
+    }, [myRoutines, activateAddActivity]);
 
     function handleDelete(id) {
         deleteRoutine(token, id);
@@ -58,25 +61,29 @@ const MyRoutines = ({ token, username }) => {
     if (myRoutines.length) {
         return (
             <div className='activityBody'>
-                <button><Link to='/create-routine' >Create New Routine</Link></button>
-                <div>
-                    <h2>My Routines:</h2>
+                <Link to='/routines/create-routine' className="createLinkBox"><button className="createLink">Create New Routine</button></Link>
+                <div className="myRoutinesBody1">
+                    <div className="line"></div>
                     {myRoutines.map((routine) => {
                         const { id, creatorName, name, goal, isPublic, activities } = routine;
 
                         return (
-                            <div key={id} className='activityContainer'>
+                            <div key={id} className='myRoutineContainer'>
                                 <h2>{name}</h2>
                                 <p>Goal: {goal}</p>
-                                <p>IsPublic: {isPublic.toString()}</p>
+                                <p>Public: {isPublic.toString()}</p>
                                 <div>
-                                    <button onClick={() => setActivateEdit(!activateEdit)}>Edit Routine</button>
+                                    <button onClick={() => setActivateEdit(!activateEdit)} className='editRoutine'>Edit Routine</button>
                                     {
-                                        activateEdit && <EditRoutine token={token} myRoutines={myRoutines} routineId={id} getMyRoutinesHelper={getMyRoutinesHelper} />
+                                        activateEdit && <EditRoutine token={token} myRoutines={myRoutines} routineId={id} getMyRoutinesHelper={getMyRoutinesHelper} navigate={navigate} />
                                     }
+                                    <button onClick={() => setActivateAddActivity(id)} className='editRoutine'>Add Activity</button>
+                                    {
+                                        activateAddActivity === id ? <AddActivityToRoutine routineId={id} setActivateAddActivity={setActivateAddActivity} /> : null
+                                    }
+                                    <button onClick={() => handleDelete(id)} className='deleteRoutine'>Delete Routine</button>
                                 </div>
 
-                                <button onClick={() => handleDelete(id)}>Delete Routine</button>
                                 <div>
                                     {activities.map((activity) => {
                                         return (
