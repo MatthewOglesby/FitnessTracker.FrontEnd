@@ -78,7 +78,10 @@ const MyRoutines = ({ token, username, navigate }) => {
                                 </div>
 
                                 <div>
-                                    {activities.map((activity) => {
+                                    {activities.filter(activity => {
+                                        return `${activity.name} ${activity.description} ${activity.id}`
+                                            .toLowerCase()
+                                    }).map((activity) => {
                                         return (
                                             <div key={activity.id}>
                                                 <h3>Activity:</h3>
@@ -106,33 +109,33 @@ const MyRoutines = ({ token, username, navigate }) => {
     }
 }
 //below is the button for editing the duration. I will need to map over the previous duration
-<div>
-<h3>Edit Activity To Routine</h3>
+{/* <div>
+    <h3>Edit Activity To Routine</h3>
 
-<select onChange={(event) => setActivityId(event.target.value)}>
-  {defaultActivities.map((activity) => (
-    <option key={activity.id} value={activity.id}>
-      {activity.name}
-    </option>
-  ))}
-</select>
-<fieldset>
-  <label>Count: </label>
-  <input
-    type="number"
-    placeholder="number-of-repetitions"
-    onChange={(event) => setCount(event.target.value)}
-  ></input>
-</fieldset>
-<fieldset>
-  <label>Duration: </label>
-  <input
-    type="number"
-    placeholder="number-of-minutes"
-    onChange={(event) => setDuration(event.target.value)}
-  ></input>
-</fieldset>
-</div>
+    <select onChange={(event) => setActivityId(event.target.value)}>
+        {defaultActivities.map((activity) => (
+            <option key={activity.id} value={activity.id}>
+                {activity.name}
+            </option>
+        ))}
+    </select>
+    <fieldset>
+        <label>Count: </label>
+        <input
+            type="number"
+            placeholder="number-of-repetitions"
+            onChange={(event) => setCount(event.target.value)}
+        ></input>
+    </fieldset>
+    <fieldset>
+        <label>Duration: </label>
+        <input
+            type="number"
+            placeholder="number-of-minutes"
+            onChange={(event) => setDuration(event.target.value)}
+        ></input>
+    </fieldset>
+</div> */}
 // <div>
 // 						  <button
 // 							onClick={() => {
@@ -145,7 +148,7 @@ const MyRoutines = ({ token, username, navigate }) => {
 // 							onClick={async () => {
 // 							  await durationActivity(
 // 								activity.routineActivityId,
-                            
+
 // 								token
 // 							  );
 // 							}}
@@ -155,15 +158,5 @@ const MyRoutines = ({ token, username, navigate }) => {
 // 						</div>
 
 //delete an activity from a routine
-async function deleteActiity(id) {
-    let response = await delete(BASE_URL + '/routines/' + id,
-    {
-        headers: {
-            Authorization: 'Bearer ' + token
-        }
-    });
-
-}
-
 
 export default MyRoutines

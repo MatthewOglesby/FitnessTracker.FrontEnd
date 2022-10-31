@@ -69,9 +69,8 @@ export const getMyRoutines = async (token, username) => {
         'Authorization': `Bearer ${token}`
       }
     })
-    const results = await response.json()
-    // console.log('results in api: ', results)
-    return results
+  
+    return response
   } catch (error) {
     console.log('error getting all routines')
   }
