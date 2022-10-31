@@ -1,14 +1,11 @@
 import { react, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getMyRoutines, deleteRoutine, updateRoutine } from "../api";
-import {AddActivityToRoutine} from './index'
+import { AddActivityToRoutine, UpdateRoutineActivity } from './index'
 
 const EditRoutine = ({ token, myRoutines, routineId, getMyRoutinesHelper, navigate }) => {
-
     const [currentRoutine] = myRoutines.filter((routine) => routine.id === routineId)
-
     const { name, goal, isPublic } = currentRoutine;
-
     const [newName, setNewName] = useState(name);
     const [newGoal, setNewGoal] = useState(goal);
     const [newIsPublic, setNewIsPublic] = useState(isPublic);
@@ -29,13 +26,12 @@ const EditRoutine = ({ token, myRoutines, routineId, getMyRoutinesHelper, naviga
         <form className='editForm' onSubmit={(event) => {
             event.preventDefault();
             editRoutine();
-            console.log('I am submitted')
         }}>
             <input type='text' className="routineEditInput" placeholder="New Name" onChange={(event) => setNewName(event.target.value)}></input>
             <input type='text' className="routineEditInput" placeholder="New Goal" onChange={(event) => setNewGoal(event.target.value)}></input>
             <p>Public?</p>
             <input type='checkbox' placeholder="true" onChange={(event) => setNewIsPublic(event.target.checked)}></input>
-            <button type="submit" className="submitEditMyRoutines" onClick={() => navigate('/MyRoutines')}>Submit Changes</button>
+            <button type="submit" className="submitEditMyRoutines" onClick={() => { navigate('/MyRoutines') }}>Submit Changes</button>
         </form>
     )
 }
@@ -44,6 +40,27 @@ const MyRoutines = ({ token, username, navigate }) => {
     const [myRoutines, setMyRoutines] = useState([]);
     const [activateEdit, setActivateEdit] = useState(false)
     const [activateAddActivity, setActivateAddActivity] = useState(0);
+    const [activateUpdateActivity, setActivateUpdateActivity] = useState(0);
+
+    const showingActivities = () => {
+        let attachedactivities = document.getElementById('attachedactivities')
+        attachedactivities.style.display = "block"
+    }
+
+    const closeActivity = () => {
+        let attachedactivities = document.getElementById('attachedactivities')
+        attachedactivities.style.display = "none"
+    }
+
+    const removeButtons = () => {
+        let deletebutton = document.getElementById('deleteRoutine') 
+        let addbutton = document.getElementById('addActivity') 
+        let editbutton = document.getElementById('editRoutine') 
+        deletebutton.style.display = 'none'
+        addbutton.style.display = 'none'
+        editbutton.style.display = 'none'
+    }
+
 
     const getMyRoutinesHelper = async () => {
         const results = await getMyRoutines(token, username);
@@ -68,35 +85,40 @@ const MyRoutines = ({ token, username, navigate }) => {
                         const { id, creatorName, name, goal, isPublic, activities } = routine;
 
                         return (
-                            <div key={id} className='myRoutineContainer'>
+                            <div key={id} className='myRoutineContainer' id="myRoutineContainer">
                                 <h2>{name}</h2>
                                 <p>Goal: {goal}</p>
                                 <p>Public: {isPublic.toString()}</p>
-                                <div>
-                                    <button onClick={() => setActivateEdit(!activateEdit)} className='editRoutine'>Edit Routine</button>
+                                <div className="buttonBox">
+                                    <button onClick={() => { setActivateEdit(!activateEdit) }} className='editRoutine' id="editRoutine">Edit Routine</button>
                                     {
                                         activateEdit && <EditRoutine token={token} myRoutines={myRoutines} routineId={id} getMyRoutinesHelper={getMyRoutinesHelper} navigate={navigate} />
                                     }
-                                    <button onClick={() => setActivateAddActivity(id)} className='editRoutine'>Add Activity</button>
+                                    <button onClick={() => setActivateAddActivity(id)} className='editRoutine' id="addActivity">Add Activity</button>
                                     {
                                         activateAddActivity === id ? <AddActivityToRoutine routineId={id} setActivateAddActivity={setActivateAddActivity} /> : null
                                     }
-                                    <button onClick={() => handleDelete(id)} className='deleteRoutine'>Delete Routine</button>
+                                    <button onClick={() => handleDelete(id)} className='editRoutine' id="deleteRoutine">Delete Routine</button>
+                                    <button className='editRoutine' onClick={() => { showingActivities() }}>Activities</button>
                                 </div>
-
-                                <div>
+                                
                                     {activities.map((activity) => {
                                         return (
-                                            <div key={activity.id}>
-                                                <h3>Activity:</h3>
+                                            <div key={activity.id} id='attachedactivities'>
+                                                <h3>Associated Activities:</h3>
                                                 <p>Name: {activity.name}</p>
                                                 <p>Description: {activity.description}</p>
                                                 <p>Duration: {activity.duration}</p>
                                                 <p>Count: {activity.count}</p>
+                                                <button onClick={() => {setActivateUpdateActivity(activity.id), removeButtons()}} className='editRoutine'>Update Activity</button>
+                                                {
+                                                    activateUpdateActivity === activity.id ? <UpdateRoutineActivity token={token} routineActivityId={activity.routineActivityId} getMyRoutinesHelper={getMyRoutinesHelper} setActivateUpdateActivity={setActivateUpdateActivity} /> : null
+                                                }
+                                                <button className='editRoutine' onClick={() => { closeActivity() }}>Close</button>
                                             </div>
                                         );
                                     })}
-                                </div>
+                                
                             </div>
                         );
                     })}

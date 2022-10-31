@@ -16,7 +16,8 @@ import {
     CreateNewActivity,
     CreateRoutine,
     EditActivity,
-    AddActivityToRoutine
+    AddActivityToRoutine,
+    UpdateRoutineActivity
 } from './components'
 
 const App = () => {

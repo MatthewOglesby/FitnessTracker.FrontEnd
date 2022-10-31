@@ -25,7 +25,7 @@ const AddActivityToRoutine = ({routineId, setActivateAddActivity}) => {
       
     }
     return (
-      <form onSubmit={(e) => {
+      <form className='updatingForm' onSubmit={(e) => {
         e.preventDefault();
         connectActivityToRoutine();
         setActivateAddActivity(0);
@@ -34,7 +34,7 @@ const AddActivityToRoutine = ({routineId, setActivateAddActivity}) => {
         <fieldset className="fieldset">
         <select 
             className='selectActivity' 
-            onChange={event => setCurrentActivityId(event.target.value)}>
+            onChange={(event) => setCurrentActivityId(event.target.value)}>
           <option className="options">Select Activity</option>
           {
             allActivities.map((activity) => {
@@ -57,5 +57,5 @@ const AddActivityToRoutine = ({routineId, setActivateAddActivity}) => {
       </form>
     )
   }
-  
+
   export default AddActivityToRoutine;

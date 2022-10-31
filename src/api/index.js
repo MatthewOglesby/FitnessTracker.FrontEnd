@@ -164,9 +164,9 @@ export const attachActivityToRoutine = async (routineId, {activityId, count, dur
   }
 }
 
-export const updateActivityForRoutine = async (token, routineActivityId, count, duration) => {
+export const updateActivityForRoutine = async (token, id, {count, duration}) => {
   try {
-    const response = await fetch(`${baseURL}routines/${routineActivityId}`, {
+    const response = await fetch(`${baseURL}routine_activities/${id}`, {
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json',
@@ -186,7 +186,7 @@ export const updateActivityForRoutine = async (token, routineActivityId, count, 
   }
 }
 
-export const deleteActivityFromRoutine = async (routineActivityId, token) => {
+export const deleteActivityFromRoutine = async ( token, id) => {
   try {
     const response = await fetch(`${baseURL}routine_activities/${routineActivityId}`, {
       method: "DELETE",
@@ -268,9 +268,9 @@ export const updateRoutine = async ({token, id, name, goal, isPublic}) => {
   }
 }
 
-export const deleteRoutine = async (routineId, token) => {
+export const deleteRoutine = async ( token, id) => {
   try {
-    const response = await fetch(`${baseURL}routines/${routineId}`, {
+    const response = await fetch(`${baseURL}routines/${id}`, {
       method: "DELETE",
       headers: {
         'Content-Type': 'application/json',
@@ -279,7 +279,7 @@ export const deleteRoutine = async (routineId, token) => {
     })
     const result = await response.json();
 
-    return result
+    return result;
 
   } catch (error) {
     console.log('error deleting routine')
